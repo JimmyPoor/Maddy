@@ -23,25 +23,12 @@
 
 <div class="container-fluid">
   <h1>Hello World!</h1>
-  <p>重置浏览器大小查效果。</p>
-  <p> 在移动设备上，即屏幕宽度小于 576px 时，四个列将会上下堆叠排版。</p>
-  <div class="row">
-    <div class="col-sm-12" style="background-color:lavender;">
-     <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-       <ngb-panel title="Title1">
-         <ng-template ngbPanelContent>
-           Content1
-         </ng-template>
-       </ngb-panel>
-       <ngb-panel title="Title2">
-         <ng-template ngbPanelContent>
-           Content2
-         </ng-template>
-       </ngb-panel>
-     </ngb-accordion>
-    </div>
-    <!-- <div class="col-sm-3" style="background-color:lavenderblush;">.col-sm-3</div>
-    <div class="col-sm-3" style="background-color:lavender;">.col-sm-3</div>
-    <div class="col-sm-3" style="background-color:lavenderblush;">.col-sm-3</div> -->
-  </div>
+
+  <!-- <form #form="ngForm">
+      <p>outerCounterValue value: {{outerCounterValue}}</p>
+    <app-exe-counter name="counter" [(ngModel)]="outerCounterValue"></app-exe-counter>
+    <button type="submit" class="btn btn-primary">Submit</button>  
+  </form> -->
+  <!-- <pre>{{ form.value | json }}</pre> -->
+
 </div>
