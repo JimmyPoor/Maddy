@@ -1,0 +1,30 @@
+// $nav-color:red;
+// $nav:nav;
+// .#{nav} {
+//     .nav-item {
+//         .nav-link {
+//             position: relative;
+//             color: $nav-color;
+//             &:hover {
+//                 //color: blue
+//             }
+//         }
+//         .active {
+//             background-color: azure;
+//         } // border: 1px solid blue {
+//         //     left: 0px;
+//         //     right: 0px;
+//         // }
+//     } // .nav-item~.nav-item {
+//     //     background-color: black;
+//     // }
+// }
+@mixin error {
+    border: 1px rgb(197, 107, 107);
+    background-color: rgb(45, 195, 233);
+}
+
+.seriousError {
+    @include error;
+    border: 3px dashed black;
+}

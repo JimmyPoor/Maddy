@@ -13,6 +13,7 @@ import { CounterComponent } from './plugins/counter/counter.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     NgbModule.forRoot()
   ],
   providers: [],

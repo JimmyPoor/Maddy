@@ -1,39 +1,22 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
   outerCounterValue = 0;
+  form: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+  }
+
+  ngOnInit() {
+    this.form = this.fb.group({
+      counter: 5
+    });
+  }
 }
-
-
-// export interface IAlert {
-//   id: number;
-//   type: string;
-//   message: string;
-// }
-
-
-// @Input()
-//   public alerts: Array<IAlert> = [];
-
-//   constructor() {
-//     this.alerts.push({
-//       id: 1,
-//       type: 'success',
-//       message: 'This is an success alert',
-//     }, {
-//         id: 2,
-//         type: 'info',
-//         message: 'This is an info alert',
-//       });
-//   }
-
-//   closeAlert(alert: IAlert): void {
-//     const index: number = this.alerts.indexOf(alert);
-//     this.alerts.splice(index, 1);
-//   }

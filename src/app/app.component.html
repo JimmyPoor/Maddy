@@ -1,34 +1,46 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <!-- Links -->
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link 1</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link 2</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link 3</a>
-    </li>
-  </ul>
 
-  <ul class="navbar-nav right">
+<header>
+  <ul class="nav nav-pills justify-content-center navbar-fixed-top">
     <li class="nav-item">
-      <a class="nav-link" href="#">Link 3</a>
+      <a class="nav-link active" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Disabled</a>
     </li>
   </ul>
- 
-</nav>
+</header>
 
 
 <div class="container-fluid">
-  <h1>Hello World!</h1>
+  <!-- <h1>Hello World!</h1>
+  <h2>Hello World!</h2>
+  <h3>Hello World!</h3>
+  <h4>Hello World!</h4>
+  <h5>Hello World!</h5>
+  <h6>Hello World!</h6>
 
-  <!-- <form #form="ngForm">
-      <p>outerCounterValue value: {{outerCounterValue}}</p>
-    <app-exe-counter name="counter" [(ngModel)]="outerCounterValue"></app-exe-counter>
-    <button type="submit" class="btn btn-primary">Submit</button>  
-  </form> -->
-  <!-- <pre>{{ form.value | json }}</pre> -->
+  <form [formGroup]="form">
+    <p>outerCounterValue value: {{outerCounterValue}}</p> 
+    <app-exe-counter formControlName="counter" rangeMax="10" rangeMin="0"></app-exe-counter>
+  </form>
+  <p *ngIf="!form.valid" class="seriousError">Counter is invalid!</p>
+  <pre>{{ form.value | json }}</pre>  -->
 
+  
 </div>
