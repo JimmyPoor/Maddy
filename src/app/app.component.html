@@ -1,46 +1,47 @@
-
 <header>
-  <ul class="nav nav-pills justify-content-center navbar-fixed-top">
-    <li class="nav-item">
-      <a class="nav-link active" href="#">Active</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link disabled" href="#">Disabled</a>
-    </li>
-  </ul>
+  <core-nav></core-nav>
 </header>
 
-
-<div class="container-fluid">
-  <!-- <h1>Hello World!</h1>
-  <h2>Hello World!</h2>
-  <h3>Hello World!</h3>
-  <h4>Hello World!</h4>
-  <h5>Hello World!</h5>
-  <h6>Hello World!</h6>
-
-  <form [formGroup]="form">
-    <p>outerCounterValue value: {{outerCounterValue}}</p> 
-    <app-exe-counter formControlName="counter" rangeMax="10" rangeMin="0"></app-exe-counter>
-  </form>
-  <p *ngIf="!form.valid" class="seriousError">Counter is invalid!</p>
-  <pre>{{ form.value | json }}</pre>  -->
-
+<div class="main">
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+    <div class="row">
+      <header></header>
+      <div class="col-xs|sm|md|lg|xl-1-12">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Title</h3>
+            <p class="card-text">Text</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs|sm|md|lg|xl-1-12">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Title</h3>
+            <p class="card-text">Text</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <h1>Hello World!</h1>
+    <h2>Hello World!</h2>
+    <h3>Hello World!</h3>
+    <h4>Hello World!</h4>
+    <h5>Hello World!</h5>
+    <h6>Hello World!</h6>
   
+    <form [formGroup]="form">
+      <p>outerCounterValue value: {{outerCounterValue}}</p> 
+      <app-exe-counter formControlName="counter" rangeMax="10" rangeMin="0"></app-exe-counter>
+    </form>
+    <p *ngIf="!form.valid" class="seriousError">Counter is invalid!</p>
+    <pre>{{ form.value | json }}</pre>  -->
+
+
+  </div>
 </div>
+
+<footer>
+  this is footer
+</footer>

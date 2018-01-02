@@ -1,4 +1,5 @@
-/* CSS书写顺序　　
+/* CSS书写规范
+书写顺序
 1.位置属性(position, top, right, z-index,display, float等)　　
 2.大小(width, height, padding, margin)　　
 3.文字系列(font, line-height, letter-spacing,color- text-align等)　　
@@ -298,7 +299,9 @@ nav
 .nav {
     @include leader;
     .nav-link {}
-    .nav-link.active { background-color: #b0b3b7}
+    .nav-link.active {
+        background-color: #b0b3b7;
+    }
 }
 
 

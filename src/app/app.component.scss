@@ -22,9 +22,14 @@
 @mixin error {
     border: 1px rgb(197, 107, 107);
     background-color: rgb(45, 195, 233);
-}
+} 
 
 .seriousError {
     @include error;
     border: 3px dashed black;
+}
+
+
+header{
+    
 }

@@ -1,0 +1,9 @@
+<div class="alert alert-primary" role="alert">
+    <strong>this is user list page</strong>}
+    <ul>
+        <li *ngFor="let user of users">
+            {{user.userName}}
+        </li>
+    </ul>
+    <router-outlet></router-outlet>
+</div>

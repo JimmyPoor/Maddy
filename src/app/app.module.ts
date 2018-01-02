@@ -1,9 +1,16 @@
+//system
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+//third party
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//mine
 import { AppComponent } from './app.component';
 import { CounterComponent } from './plugins/counter/counter.component';
+import { AppRoutingModule } from './app.routing.module';
+import { UsersModule } from './users/users.module';
+import { CoreModule } from './core/core.module'
 
 @NgModule({
   declarations: [
@@ -11,13 +18,20 @@ import { CounterComponent } from './plugins/counter/counter.component';
     CounterComponent
   ],
   imports: [
+    //ststem
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule.forRoot()
+    HttpClientModule,
+    //third party
+    NgbModule.forRoot(),
+    //mine
+    UsersModule,
+    AppRoutingModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule { } 
