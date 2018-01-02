@@ -2,7 +2,7 @@ import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const usersRoutes: Routes = [
-    { path: '', redirectTo: '/users', pathMatch: 'full' }
+    { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -15,6 +15,4 @@ const usersRoutes: Routes = [
     exports: [RouterModule]
 })
 
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule {}

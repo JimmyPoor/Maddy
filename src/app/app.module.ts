@@ -1,16 +1,17 @@
-//system
+// system
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-//third party
+// third party
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-//mine
+// mine
 import { AppComponent } from './app.component';
 import { CounterComponent } from './plugins/counter/counter.component';
 import { AppRoutingModule } from './app.routing.module';
 import { UsersModule } from './users/users.module';
-import { CoreModule } from './core/core.module'
+import { CoreModule } from './core/core.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -18,17 +19,18 @@ import { CoreModule } from './core/core.module'
     CounterComponent
   ],
   imports: [
-    //ststem
+    // ststem
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    //third party
+    // third party
     NgbModule.forRoot(),
-    //mine
-    UsersModule,
+    // mine
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    HomeModule,
+    UsersModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
