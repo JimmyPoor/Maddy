@@ -29,8 +29,8 @@ import { HomeModule } from './home/home.module';
     // mine
     AppRoutingModule,
     CoreModule,
-    HomeModule,
     UsersModule,
+    HomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
