@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // third party
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // mine
 import { AppComponent } from './app.component';
 import { CounterComponent } from './plugins/counter/counter.component';
@@ -25,7 +25,7 @@ import { HomeModule } from './home/home.module';
     ReactiveFormsModule,
     HttpClientModule,
     // third party
-    NgbModule.forRoot(),
+    // NgbModule.forRoot(),
     // mine
     AppRoutingModule,
     CoreModule,
