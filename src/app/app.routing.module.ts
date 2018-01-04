@@ -8,8 +8,7 @@ const usersRoutes: Routes = [
 @NgModule({
     imports: [
         RouterModule.forRoot(
-            usersRoutes,
-            { enableTracing: true }
+            usersRoutes
         ),
     ],
     exports: [RouterModule]

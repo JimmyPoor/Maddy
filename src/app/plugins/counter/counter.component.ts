@@ -108,7 +108,6 @@ export class CounterComponent implements ControlValueAccessor, Validator, OnChan
     private _createValidator(): void {
         this._validator = createCounterRangeValidator(this.rangeMax, this.rangeMin);
     }
-
 }
 
 
