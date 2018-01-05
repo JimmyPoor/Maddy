@@ -2,10 +2,13 @@
 
 <div class="home">
   <div class="carousel margin-bottom-30">
-    <app-carousel [isShowControl]="true" (prevRequest)="carouselPrev($event)" (bindSourceRequest)="bindCarousel($event)"></app-carousel>
+    <app-carousel [isShowControl]="isShow" (prevRequest)="carouselPrev($event)" (bindSourceRequest)="bindCarousel($event)"></app-carousel>
   </div>
 
+  <!-- app-table列子 -->
+
   <div class="home-main margin-bottom-30">
+    <ngx-loading [show]="isShow" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
     <div class="row">
       <div class="col-md-6 col-lg-4 col-sm-6 margin-bottom-30 block btn06">
         <img src="https://htmlstream.com/preview/unify-v2.4/assets/img-temp/600x295/img4.jpg" alt="">
@@ -30,11 +33,8 @@
     </div>
 
     <div>
-
+      <app-table></app-table>
     </div>
-
   </div>
-
-
 
 </div>

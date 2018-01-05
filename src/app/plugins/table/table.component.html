@@ -1,0 +1,36 @@
+<table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="pageSize">
+    <thead>
+        <tr>
+            <th *ngIf="showCheckbox">
+                <input type="checkbox" name="options" />
+            </th>
+            <th class="table-header" *ngFor="let col of columns">
+                <mfDefaultSorter by="{{col}}">{{col}}</mfDefaultSorter>
+            </th>
+            <th>
+                编辑
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of mf.data">
+            <td *ngIf="showCheckbox">
+                <input type="checkbox" name="options" />
+            </td>
+            <td *ngFor="let col of getKeys(row)">
+                {{row[col]}}
+            </td>
+            <td>
+                <ng-template [ngTemplateOutlet]="commandTemplate"></ng-template>
+                <!-- <app-table-command [content]="commandArea"></app-table-command> -->
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">
+                <mfBootstrapPaginator></mfBootstrapPaginator>
+            </td>
+        </tr>
+    </tfoot>
+</table>

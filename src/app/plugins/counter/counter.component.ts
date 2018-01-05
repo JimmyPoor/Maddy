@@ -71,6 +71,7 @@ export class CounterComponent implements ControlValueAccessor, Validator, OnChan
         }
 
     }
+    
     registerOnChange(fn: any): void {
         this.propegateChange = fn;
     }

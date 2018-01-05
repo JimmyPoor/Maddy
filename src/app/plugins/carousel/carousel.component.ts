@@ -1,4 +1,7 @@
-import { Component, Input, Output, EventEmitter, Directive, ElementRef ,OnInit} from '@angular/core';
+import {
+    Component, Input, Output, EventEmitter, // 如果超过4个则换行
+    Directive, ElementRef, OnInit
+} from '@angular/core';
 
 
 @Component({

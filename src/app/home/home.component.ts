@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-
 import { CarouselModel, CarouselComponent } from '../plugins/carousel/carousel.component';
+
+import { User } from '../users/shared/user.model';
 
 @Component({
   selector: 'app-home',
@@ -10,11 +11,14 @@ import { CarouselModel, CarouselComponent } from '../plugins/carousel/carousel.c
 
 export class HomeComponent {
   title = 'home';
-
+  isShow: boolean = false;
+  
+  //轮播回滚
   carouselPrev(message: CarouselModel) {
     console.log(message.url);
   }
 
+   //轮播数据绑定
   bindCarousel(carousel: CarouselComponent) {
     carousel.carousels = [
       {
