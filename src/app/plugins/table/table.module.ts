@@ -1,20 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { DataTableModule } from 'angular2-datatable'
+import { DataTableModule } from 'angular2-datatable';
 
-import { TableCommandComponent } from './table.command.component';
 import { TableComponent } from './table.component';
+import { ColumnComponent } from './table.column.Component';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
-    declarations: [TableComponent,TableCommandComponent],
+    declarations: [
+        TableComponent,
+        ColumnComponent
+    ],
     imports: [
         DataTableModule,
-        CommonModule
+        CommonModule,
+        SharedModule
     ],
-    exports: [TableComponent]
+    exports: [TableComponent, ColumnComponent]
 })
 
-export class TableModule {
-
-}
+export class TableModule { }

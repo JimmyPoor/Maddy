@@ -1,0 +1,25 @@
+.table-theme-chocolate {
+    &.table {
+        text-align: center;
+        color: #5C3317; // border:1px solid #e9ecef;
+        thead th {
+            border: 1px solid #e9ecef;
+            font-size: 14px;
+        }
+        thead .table-checkbox-header {
+            width: 5%;
+        }
+        tbody {
+            tr {
+                border: 1px solid #e9ecef;
+            }
+            tr:nth-of-type(odd) {
+                background-color: #EBEBEB;
+                font-size: 12px;
+            }
+            tr:hover {
+                background-color: #FFEBCD;
+            }
+        }
+    }
+}

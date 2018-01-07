@@ -19,4 +19,4 @@ import { TableModule } from '../plugins/table/table.module';
     exports: [HomeComponent]
 })
 
-export class HomeModule {}
+export class HomeModule { }

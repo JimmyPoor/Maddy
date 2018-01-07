@@ -11,14 +11,14 @@ import { User } from '../users/shared/user.model';
 
 export class HomeComponent {
   title = 'home';
-  isShow: boolean = false;
-  
-  //轮播回滚
+  isShow = false;
+
+  // 轮播回滚
   carouselPrev(message: CarouselModel) {
     console.log(message.url);
   }
 
-   //轮播数据绑定
+  // 轮播数据绑定
   bindCarousel(carousel: CarouselComponent) {
     carousel.carousels = [
       {
@@ -37,5 +37,13 @@ export class HomeComponent {
         subTitle: ''
       },
     ];
+  }
+
+  bindTable() {
+
+  }
+
+  click(event: any, id: any) {
+    alert(id);
   }
 }
