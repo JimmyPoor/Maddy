@@ -1,5 +1,5 @@
 <!-- table template start -->
-<table class="table table-striped {{tableTheme}}" [mfData]="data" #mf="mfDataTable">
+<table class="table table-striped {{tableTheme}}" [mfData]="viewModels" #mf="mfDataTable">
   <thead>
     <tr>
 
@@ -21,7 +21,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let row of mf.data">
+    <tr *ngFor="let row of mf.data; index as i">
 
       <!-- data column start -->
       <td *ngFor="let col of getKeys(row)">
@@ -31,7 +31,8 @@
 
       <!-- command column start -->
       <td *ngIf="showCommandColumn">
-        <ng-template *ngTemplateOutlet="commandTemplate; context: row"></ng-template>
+        <!-- 注意! context 上下文 不要用mfData 而是用数据源data代替 -->
+        <ng-template *ngTemplateOutlet="commandTemplate; context: data[i]"></ng-template>
       </td>
       <!-- command column end -->
 

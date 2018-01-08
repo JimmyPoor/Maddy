@@ -1,5 +1,4 @@
-<!-- <h1>this is home!</h1> -->
-
+<!-- home demo start -->
 <div class="home">
   <div class="carousel margin-bottom-30">
     <app-carousel [isShowControl]="isShow" (prevRequest)="carouselPrev($event)" (bindSourceRequest)="bindCarousel($event)"></app-carousel>
@@ -33,17 +32,16 @@
     <div>
 
       <!-- table demo start -->
-      <app-table  #table [showCommandColumn]="true" [total]="total"  (bindSourceRequest)="bindTable($event)">
+      <app-table #table [showCommandColumn]="true" [total]="total" (bindSourceRequest)="bindTable($event)">
 
         <ng-template #commandTemplate let-id="col1" let-name="col2">
           <button type="button" (click)="click($event,id)" class="btn btn-sm btn-danger btn-delete">删除 {{name}}</button>
           <button type="button" (click)="click($event,id)" class="btn btn-sm btn-danger btn-delete">删除 {{name}}</button>
         </ng-template>
 
-        <!-- <app-column columnName="col1" content="<img src='https://htmlstream.com/preview/unify-v2.4/assets/img-temp/600x295/img1.jpg' />">
+        <app-column columnName="&name" content="<div id='&col1'><img src='&url' /></div>">
         </app-column>
-        <app-column columnName="col2" content="<img src='https://htmlstream.com/preview/unify-v2.4/assets/img-temp/600x295/img1.jpg' />">
-        </app-column> -->
+
       </app-table>
       <!-- table demo end -->
 
@@ -51,3 +49,4 @@
   </div>
 
 </div>
+<!-- home demo end -->
