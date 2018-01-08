@@ -16,25 +16,22 @@ import { isNullOrUndefined } from 'util';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class TableComponent implements AfterContentInit {
+export class TableComponent implements AfterContentInit, OnInit {
     // 列数组
-    @Input() columnTitles: Array<string> = ['col1', 'col2'];
+    @Input() columnTitles: Array<string>;
     // 数据源
-    @Input() data: Array<any> = [
-        { 'col1': 'data-1', 'col2': 'data-1' },
-        { 'col1': 'data-2', 'col2': 'data-1' },
-        { 'col1': 'data-3', 'col2': 'data-1' },
-        { 'col1': 'data-4', 'col2': 'data-1' },
-        { 'col1': 'data-5', 'col2': 'data-1' }
-    ];
+    @Input() data: Array<any>;
+    // 数据总数
+    @Input() total: number;
     // 每页显示数
     @Input() pageSize = 5;
+    page = 0;
     // 是否显示操作列
     @Input() showCommandColumn = false;
-    // 是否显示操作列
+    // 是否显示用户头
     @Input() showCustomerHeader = false;
     // 操作列标题
-    @Input() commandTitle = 'command';
+    @Input() commandTitle = '操作';
     // 操作列模板
     @ContentChild('commandTemplate') commandTemplate: TemplateRef<void>;
     // header模板
@@ -45,15 +42,31 @@ export class TableComponent implements AfterContentInit {
     @ContentChildren(ColumnComponent) columnTemplate: QueryList<ColumnComponent>;
     // 绑定数据源
     @Output() bindSourceRequest: EventEmitter<TableComponent>;
+    // 空数据标题
+    isNoData: boolean;
 
-    isNoData = isNullOrUndefined(this.data) || this.data.length <= 0;
-
-    ngAfterContentInit() {
-        this.bindColumnTemplate();
+    constructor() {
+        this.bindSourceRequest = new EventEmitter();
     }
 
-    private bindSource() {
-        this.bindSourceRequest.emit(this);
+    ngOnInit() {
+    }
+
+    ngAfterContentInit() {
+        this.dataBind();
+        this.isNoData = isNullOrUndefined(this.data) || this.data.length <= 0;
+    }
+
+    dataBind() {
+        if (!isNullOrUndefined(this.bindSourceRequest)) {
+            this.bindSourceRequest.emit(this);
+            this.bindColumnTemplate();
+        }
+    }
+
+    private pageChange(page: number) {
+        this.page = page;
+        this.dataBind();
     }
 
     private bindColumnTemplate() {

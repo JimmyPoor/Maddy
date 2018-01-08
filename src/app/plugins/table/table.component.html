@@ -1,24 +1,28 @@
-<table class="table table-striped {{tableTheme}}" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="pageSize">
+<!-- table template start -->
+<table class="table table-striped {{tableTheme}}" [mfData]="data" #mf="mfDataTable">
   <thead>
     <tr>
-      <th class="table-checkbox-header" *ngIf="showCheckbox">
-        <input type="checkbox" name="options" />
-      </th>
+
+      <!-- table header template start -->
       <ng-template [ngTemplateOutlet]="headerTemplate" *ngIf="showCustomerHeader; else elseBlock"></ng-template>
       <ng-template #elseBlock>
         <th class="table-header" *ngFor="let col of columnTitles">
           <mfDefaultSorter by="{{col}}">{{col}}</mfDefaultSorter>
         </th>
       </ng-template>
+      <!-- table header template end -->
 
+      <!-- command header start -->
       <th *ngIf="showCommandColumn">
         {{commandTitle}}
       </th>
+      <!-- command header end -->
+
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let row of mf.data">
-      
+
       <!-- data column start -->
       <td *ngFor="let col of getKeys(row)">
         <span [innerHTML]="row[col] | bypassSecurityTrustHtml"></span>
@@ -34,22 +38,22 @@
     </tr>
   </tbody>
   <tfoot>
+
+    <!-- pagination area start -->
     <tr *ngIf="!isNoData">
       <td colspan="4">
-        <mfBootstrapPaginator></mfBootstrapPaginator>
+        <ngb-pagination [collectionSize]="total" [pageSize]="pageSize" [(page)]="page" [boundaryLinks]="true" [directionLinks]="true"
+          (pageChange)="pageChange(page)">
+        </ngb-pagination>
       </td>
     </tr>
+     <!-- pagination area end -->
+
   </tfoot>
 </table>
+
+<!-- no data area start -->
 <div *ngIf="isNoData" class="text-center">
-  no data
+  没有数据
 </div>
-
-
-
-
-<!-- <ng-template>
-   <coulmnTemplate columnName="">
-
-   </coulmnTemplate>
-</ng-template> -->
+<!-- no data area end -->

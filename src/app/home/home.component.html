@@ -33,44 +33,17 @@
     <div>
 
       <!-- table demo start -->
-      <app-table [showCommandColumn]="true">
-        <!-- <ng-template #headerTemplate>
-          <th colspan="2">
-            <table style="width:100%">
-              <tr>
-                <td colspan="2">title</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>2</td>
-              </tr>
-            </table>
-          </th>
-          <th colspan="3">
-            <table style="width:100%">
-              <tr>
-                <td colspan="3">title2</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-              </tr>
-            </table>
-          </th>
-        </ng-template> -->
+      <app-table  #table [showCommandColumn]="true" [total]="total"  (bindSourceRequest)="bindTable($event)">
 
         <ng-template #commandTemplate let-id="col1" let-name="col2">
-          <button type="button" (click)="click($event,id)" class="btn btn-sm btn-danger">删 除 {{name}}</button>
+          <button type="button" (click)="click($event,id)" class="btn btn-sm btn-danger btn-delete">删除 {{name}}</button>
+          <button type="button" (click)="click($event,id)" class="btn btn-sm btn-danger btn-delete">删除 {{name}}</button>
         </ng-template>
 
-        <ng-template #col>
-          <button type="button" (click)="click($event,id)" class="btn btn-sm btn-danger">删 除 {{name}}</button>
-        </ng-template>
-
-
-        <app-column columnName="col2" content="<input value='{{col1}}' >" let-id="col1">
+        <!-- <app-column columnName="col1" content="<img src='https://htmlstream.com/preview/unify-v2.4/assets/img-temp/600x295/img1.jpg' />">
         </app-column>
+        <app-column columnName="col2" content="<img src='https://htmlstream.com/preview/unify-v2.4/assets/img-temp/600x295/img1.jpg' />">
+        </app-column> -->
       </app-table>
       <!-- table demo end -->
 

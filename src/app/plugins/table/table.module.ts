@@ -6,16 +6,18 @@ import { DataTableModule } from 'angular2-datatable';
 import { TableComponent } from './table.component';
 import { ColumnComponent } from './table.column.Component';
 import { SharedModule } from '../../shared/shared.module';
+import { NgbPaginationModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
         TableComponent,
-        ColumnComponent
+        ColumnComponent,
     ],
     imports: [
-        DataTableModule,
         CommonModule,
-        SharedModule
+        SharedModule,
+        DataTableModule,
+        NgbPaginationModule,
     ],
     exports: [TableComponent, ColumnComponent]
 })
