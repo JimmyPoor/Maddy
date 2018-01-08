@@ -32,14 +32,13 @@
     <div>
 
       <!-- table demo start -->
-      <app-table #table [showCommandColumn]="true" [total]="total" (bindSourceRequest)="bindTable($event)">
+      <app-table #table [showCommandColumn]="true"  (bindSourceRequest)="bindTable($event)">
 
         <ng-template #commandTemplate let-id="col1" let-name="col2">
           <button type="button" (click)="click($event,id)" class="btn btn-sm btn-danger btn-delete">删除 {{name}}</button>
-          <button type="button" (click)="click($event,id)" class="btn btn-sm btn-danger btn-delete">删除 {{name}}</button>
         </ng-template>
 
-        <app-column columnName="&name" content="<div id='&col1'><img src='&url' /></div>">
+        <app-column columnName="col1" content="<div id='&col2'><img src='https://htmlstream.com/preview/unify-v2.4/assets/img-temp/600x295/&col2.jpg' /></div>">
         </app-column>
 
       </app-table>

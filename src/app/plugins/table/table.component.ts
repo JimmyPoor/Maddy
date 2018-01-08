@@ -17,16 +17,6 @@ import { isNullOrUndefined } from 'util';
 })
 
 export class TableComponent implements AfterContentInit, OnInit {
-    // 列数组
-    @Input() columnTitles: Array<string>;
-    // 数据源
-    @Input() data: Array<any>;
-    // 数据总数
-    @Input() total: number;
-    // 每页显示数
-    @Input() pageSize = 5;
-    page = 0;
-    // 是否显示操作列
     @Input() showCommandColumn = false;
     // 是否显示用户头
     @Input() showCustomerHeader = false;
@@ -36,16 +26,26 @@ export class TableComponent implements AfterContentInit, OnInit {
     @ContentChild('commandTemplate') commandTemplate: TemplateRef<void>;
     // header模板
     @ContentChild('headerTemplate') headerTemplate: TemplateRef<void>;
-    // 主题
-    @Input() tableTheme = 'table-theme-chocolate';
     // 列模板
     @ContentChildren(ColumnComponent) columnTemplate: QueryList<ColumnComponent>;
     // 绑定数据源
     @Output() bindSourceRequest: EventEmitter<TableComponent>;
+    // 主题
+    @Input() tableTheme = 'table-theme-chocolate';
+    // 列数组
+    columnTitles: Array<string>;
+    // 数据源
+    @Input() data: Array<any>;
+    // 分页事件
+    pageEvent: PageEvent = {
+        pageSize: 5,
+        current: 0,
+        total: 0
+    };
     // 空数据标题
-    isNoData: boolean;
+    private isNoData: boolean;
     // 绑定table空间的视图模型
-    viewModels: Array<any>;
+    private viewModels: Array<any>;
 
     constructor() {
         this.bindSourceRequest = new EventEmitter();
@@ -58,14 +58,15 @@ export class TableComponent implements AfterContentInit, OnInit {
     // 数据绑定
     dataBind() {
         if (!isNullOrUndefined(this.bindSourceRequest)) {
+            this.bindSourceRequest.subscribe(x => {
+                this.bindColumnTemplate();
+            });
             this.bindSourceRequest.emit(this);
-            this.bindColumnTemplate();
         }
     }
 
     // 分页响应
-    private pageChange(page: number) {
-        this.page = page;
+    private pageChange() {
         this.dataBind();
     }
 
@@ -84,7 +85,12 @@ export class TableComponent implements AfterContentInit, OnInit {
             }
 
             for (let j = 0; j < this.viewModels.length; j++) {
-                this.viewModels[j][temp.columnName] = temp.content;
+                this.getKeys(this.data[j])
+                    .forEach(key => {
+                        temp.content = temp.content.replace('&' + key, this.data[j][key]);
+                        this.viewModels[j][temp.columnName] = temp.content;
+                    });
+
             }
         }
     }
@@ -95,9 +101,9 @@ export class TableComponent implements AfterContentInit, OnInit {
 
     // 克隆方法
     private clone(obj) {
-        var copy;
+        let copy;
 
-        if (null == obj || "object" != typeof obj) return obj;
+        if (null == obj || 'object' !== typeof obj) { return obj; }
 
         if (obj instanceof Date) {
             copy = new Date();
@@ -107,7 +113,7 @@ export class TableComponent implements AfterContentInit, OnInit {
 
         if (obj instanceof Array) {
             copy = [];
-            for (var i = 0, len = obj.length; i < len; i++) {
+            for (let i = 0, len = obj.length; i < len; i++) {
                 copy[i] = this.clone(obj[i]);
             }
             return copy;
@@ -115,14 +121,20 @@ export class TableComponent implements AfterContentInit, OnInit {
 
         if (obj instanceof Object) {
             copy = {};
-            for (var attr in obj) {
-                if (obj.hasOwnProperty(attr)) copy[attr] = this.clone(obj[attr]);
+            for (const attr in obj) {
+                if (obj.hasOwnProperty(attr)) { copy[attr] = this.clone(obj[attr]); }
             }
             return copy;
         }
 
-        throw new Error("Unable to copy obj! Its type isn't supported.");
+        throw new Error('Unable to copy obj! Its type isn\'t supported.');
     }
+}
+
+export interface PageEvent {
+    total: number;
+    pageSize: number;
+    current: number;
 }
 
 

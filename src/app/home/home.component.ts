@@ -49,24 +49,23 @@ export class HomeComponent implements OnInit {
   }
 
   bindTable(table: TableComponent) {
-    table.columnTitles = ["标题1", "标题2"];
-    if (table.page <= 1)
-      table.data = [
-        { 'col1': 'data-1111111111111', 'col2': 'data-1' },
-        { 'col1': 'data-2', 'col2': 'data-1' },
-        { 'col1': 'data-3', 'col2': 'data-1' },
-        { 'col1': 'data-4', 'col2': 'data-1' },
-        { 'col1': 'data-5', 'col2': 'data-1' },
+    // console.log(table.pageEvent);
+    table.columnTitles = ['标题1', '标题2'];
+    // below get by ajax post
+    table.pageEvent.pageSize = 5;
+    table.pageEvent.total = 11;
+    table.data = table.pageEvent.current === 2 ? [{ 'col1': 'data-1', 'col2': 'data-1' },
+    { 'col1': 'data-2', 'col2': 'img1' },
+    { 'col1': 'data-3', 'col2': 'img1' },
+    { 'col1': 'data-4', 'col2': 'img1' },
+    { 'col1': 'data-5', 'col2': 'img1' }
+    ] : [
+        { 'col1': 'data-3', 'col2': 'img1' },
+        { 'col1': 'data-4222', 'col2': 'img1' },
+        { 'col1': 'data-5', 'col2': 'img1' },
+        { 'col1': 'data-6', 'col2': 'img1' },
+        { 'col1': 'data-7', 'col2': 'img1' }
       ];
-    else {
-      table.data = [
-        { 'col1': 'data-11', 'col2': 'data-1' },
-        { 'col1': 'data-22', 'col2': 'data-1' },
-        { 'col1': 'data-33', 'col2': 'data-1' },
-        { 'col1': 'data-44', 'col2': 'data-1' },
-        { 'col1': 'data-55', 'col2': 'data-1' },
-      ];
-    }
   }
 
   click(event: any, id: any) {

@@ -7,7 +7,8 @@
       <ng-template [ngTemplateOutlet]="headerTemplate" *ngIf="showCustomerHeader; else elseBlock"></ng-template>
       <ng-template #elseBlock>
         <th class="table-header" *ngFor="let col of columnTitles">
-          <mfDefaultSorter by="{{col}}">{{col}}</mfDefaultSorter>
+          <!-- <mfDefaultSorter by="{{col}}"></mfDefaultSorter> -->
+          {{col}}
         </th>
       </ng-template>
       <!-- table header template end -->
@@ -43,8 +44,8 @@
     <!-- pagination area start -->
     <tr *ngIf="!isNoData">
       <td colspan="4">
-        <ngb-pagination [collectionSize]="total" [pageSize]="pageSize" [(page)]="page" [boundaryLinks]="true" [directionLinks]="true"
-          (pageChange)="pageChange(page)">
+        <ngb-pagination [(collectionSize)]="pageEvent.total" [(pageSize)]="pageEvent.pageSize" [(page)]="pageEvent.current" [boundaryLinks]="true" [directionLinks]="true"
+          (pageChange)="pageChange(pageEvent)">
         </ngb-pagination>
       </td>
     </tr>
