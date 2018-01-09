@@ -36,10 +36,10 @@ export class TableComponent implements AfterContentInit, OnInit {
     columnTitles: Array<string>;
     // 数据源
     @Input() data: Array<any> = [
-        { 'col1': 'val1', 'col2': 'val2' },
-        { 'col1': 'val1', 'col2': 'val2' },
-        { 'col1': 'val1', 'col2': 'val2' },
-        { 'col1': 'val1', 'col2': 'val2' }
+        { 'col1': '', 'col2': '' },
+        { 'col1': '', 'col2': '' },
+        { 'col1': '', 'col2': '' },
+        { 'col1': '', 'col2': '' }
     ];
     // 分页事件
     pageEvent: PageEvent = {

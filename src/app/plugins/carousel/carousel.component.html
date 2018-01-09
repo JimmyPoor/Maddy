@@ -2,7 +2,7 @@
     <div class="carousel-inner">
 
         <div *ngFor="let carousel of carousels; index as i;" [class]="i==0?'carousel-item active':'carousel-item'">
-            <img class="d-block w-100" [src]="carousel.url" alt="First slide">
+            <a [href]="carousel.url"><img class="d-block w-100" [src]="carousel.url" alt="First slide"></a>
             <div class="carousel-caption">
                 <h3>{{carousel.title}}</h3>
                 <p>{{carousel.subTitle}}</p>

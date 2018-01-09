@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, OnInit } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { CarouselModel, CarouselComponent } from '../plugins/carousel/carousel.component';
 
 import { User } from '../users/shared/user.model';
@@ -15,18 +15,8 @@ import 'rxjs/add/operator/debounceTime';
   styleUrls: ['./home.component.scss']
 })
 
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   title = 'home';
-  isShow = false;
-  total: number;
-  subject = new Subject<Array<any>>();
-
-  // @ViewChild('table')
-  // private isessencList: TableComponent;
-
-  ngOnInit(): void {
-    this.total = 10;
-  }
 
   // 轮播回滚
   carouselPrev(message: CarouselModel) {
@@ -47,7 +37,7 @@ export class HomeComponent implements OnInit {
         subTitle: ''
       },
       {
-        url: 'http://demo.cssmoban.com/cssthemes4/tops_48_Metronic/assets/pages/img/frontend-slider/bg9.jpg',
+        url: 'http://demo.cssmoban.com/cssthemes4/tops_48_Metronic/assets/pages/img/frontend-slider/bg8.jpg',
         title: 'this is title3',
         subTitle: ''
       },
@@ -55,14 +45,12 @@ export class HomeComponent implements OnInit {
   }
 
   bindTable(table: TableComponent) {
-    // console.log(table.pageEvent);
     table.columnTitles = ['标题1', '标题2'];
-    // below get by ajax post
     table.pageEvent.pageSize = 5;
-    table.pageEvent.total = 11;
-
+    
     setTimeout(() => {
-      table.data = table.pageEvent.current==1? [
+      table.pageEvent.total = 11;
+      table.data = table.pageEvent.current === 1 ? [
         { 'col1': 'data-2', 'col2': 'img1' },
         { 'col1': 'data-2', 'col2': 'img1' },
         { 'col1': 'data-2', 'col2': 'img1' },
@@ -71,13 +59,13 @@ export class HomeComponent implements OnInit {
         { 'col1': 'data-2', 'col2': 'img1' },
         { 'col1': 'data-2', 'col2': 'img1' },
         { 'col1': 'data-2', 'col2': 'img1' },
-      ]:[
-        { 'col1': 'data-2', 'col2': 'img1' },
-        { 'col1': 'data-2', 'col2': 'img1' },
-        { 'col1': 'data-2', 'col2': 'img1' },
-      ];
+      ] : [
+          { 'col1': 'data-2', 'col2': 'img1' },
+          { 'col1': 'data-2', 'col2': 'img1' },
+          { 'col1': 'data-2', 'col2': 'img1' },
+        ];
       table.bind();
-    }, 3000);
+    }, 1000);
   }
 
   click(event: any, id: any) {
