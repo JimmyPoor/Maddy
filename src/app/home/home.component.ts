@@ -3,6 +3,11 @@ import { CarouselModel, CarouselComponent } from '../plugins/carousel/carousel.c
 
 import { User } from '../users/shared/user.model';
 import { TableComponent } from '../plugins/table/table.component';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/debounceTime';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +19,7 @@ export class HomeComponent implements OnInit {
   title = 'home';
   isShow = false;
   total: number;
+  subject = new Subject<Array<any>>();
 
   // @ViewChild('table')
   // private isessencList: TableComponent;
@@ -54,18 +60,24 @@ export class HomeComponent implements OnInit {
     // below get by ajax post
     table.pageEvent.pageSize = 5;
     table.pageEvent.total = 11;
-    table.data = table.pageEvent.current === 2 ? [{ 'col1': 'data-1', 'col2': 'data-1' },
-    { 'col1': 'data-2', 'col2': 'img1' },
-    { 'col1': 'data-3', 'col2': 'img1' },
-    { 'col1': 'data-4', 'col2': 'img1' },
-    { 'col1': 'data-5', 'col2': 'img1' }
-    ] : [
-        { 'col1': 'data-3', 'col2': 'img1' },
-        { 'col1': 'data-4222', 'col2': 'img1' },
-        { 'col1': 'data-5', 'col2': 'img1' },
-        { 'col1': 'data-6', 'col2': 'img1' },
-        { 'col1': 'data-7', 'col2': 'img1' }
+
+    setTimeout(() => {
+      table.data = table.pageEvent.current==1? [
+        { 'col1': 'data-2', 'col2': 'img1' },
+        { 'col1': 'data-2', 'col2': 'img1' },
+        { 'col1': 'data-2', 'col2': 'img1' },
+        { 'col1': 'data-2', 'col2': 'img1' },
+        { 'col1': 'data-2', 'col2': 'img1' },
+        { 'col1': 'data-2', 'col2': 'img1' },
+        { 'col1': 'data-2', 'col2': 'img1' },
+        { 'col1': 'data-2', 'col2': 'img1' },
+      ]:[
+        { 'col1': 'data-2', 'col2': 'img1' },
+        { 'col1': 'data-2', 'col2': 'img1' },
+        { 'col1': 'data-2', 'col2': 'img1' },
       ];
+      table.bind();
+    }, 3000);
   }
 
   click(event: any, id: any) {

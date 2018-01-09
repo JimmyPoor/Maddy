@@ -2,12 +2,11 @@ import {
     Component, Input, Output, ChangeDetectionStrategy,
     OnInit, EventEmitter, HostListener, AfterViewInit,
     ContentChild, TemplateRef, ViewContainerRef, QueryList,
-    ContentChildren, AfterContentInit, ViewChild
+    ContentChildren, AfterContentInit, ViewChild, ChangeDetectorRef
 } from '@angular/core';
-
-import { User } from '../../users/shared/user.model';
-import { ColumnComponent } from './table.column.Component';
 import { isNullOrUndefined } from 'util';
+
+import { ColumnComponent } from './table.column.Component';
 
 @Component({
     selector: 'app-table',
@@ -17,6 +16,7 @@ import { isNullOrUndefined } from 'util';
 })
 
 export class TableComponent implements AfterContentInit, OnInit {
+    // 是否显示操作列
     @Input() showCommandColumn = false;
     // 是否显示用户头
     @Input() showCustomerHeader = false;
@@ -35,7 +35,12 @@ export class TableComponent implements AfterContentInit, OnInit {
     // 列数组
     columnTitles: Array<string>;
     // 数据源
-    @Input() data: Array<any>;
+    @Input() data: Array<any> = [
+        { 'col1': 'val1', 'col2': 'val2' },
+        { 'col1': 'val1', 'col2': 'val2' },
+        { 'col1': 'val1', 'col2': 'val2' },
+        { 'col1': 'val1', 'col2': 'val2' }
+    ];
     // 分页事件
     pageEvent: PageEvent = {
         pageSize: 5,
@@ -45,9 +50,9 @@ export class TableComponent implements AfterContentInit, OnInit {
     // 空数据标题
     private isNoData: boolean;
     // 绑定table空间的视图模型
-    private viewModels: Array<any>;
+    private viewModels = this.data;
 
-    constructor() {
+    constructor(public cdRef: ChangeDetectorRef) {
         this.bindSourceRequest = new EventEmitter();
     }
 
@@ -55,23 +60,8 @@ export class TableComponent implements AfterContentInit, OnInit {
 
     ngAfterContentInit() { }
 
-    // 数据绑定
-    dataBind() {
-        if (!isNullOrUndefined(this.bindSourceRequest)) {
-            this.bindSourceRequest.subscribe(x => {
-                this.bindColumnTemplate();
-            });
-            this.bindSourceRequest.emit(this);
-        }
-    }
-
-    // 分页响应
-    private pageChange() {
-        this.dataBind();
-    }
-
     // 绑定列模板
-    private bindColumnTemplate() {
+    bind() {
         if (isNullOrUndefined(this.data)) {
             return;
         }
@@ -93,6 +83,20 @@ export class TableComponent implements AfterContentInit, OnInit {
 
             }
         }
+
+        this.cdRef.markForCheck();
+    }
+
+    // 数据绑定
+    private bindRequest() {
+        if (!isNullOrUndefined(this.bindSourceRequest)) {
+            this.bindSourceRequest.emit(this);
+        }
+    }
+
+    // 分页响应
+    private pageChange() {
+        this.bindRequest();
     }
 
     private getKeys(item) {

@@ -1,5 +1,5 @@
 <!-- table template start -->
-<table class="table table-striped {{tableTheme}}" [mfData]="viewModels" #mf="mfDataTable">
+<table class="table table-striped {{tableTheme}}" >
   <thead>
     <tr>
 
@@ -22,7 +22,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let row of mf.data; index as i">
+    <tr *ngFor="let row of viewModels; index as i">
 
       <!-- data column start -->
       <td *ngFor="let col of getKeys(row)">
