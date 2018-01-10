@@ -1,5 +1,6 @@
 <!-- home demo start -->
 <div class="home">
+
   <div class="carousel margin-bottom-30">
     <app-carousel [isShowControl]="true" (prevRequest)="carouselPrev($event)" (bindSourceRequest)="bindCarousel($event)"></app-carousel>
   </div>
@@ -7,26 +8,35 @@
   <div class="home-main margin-bottom-30">
     <!-- <ngx-loading [show]="false" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading> -->
     <div class="row">
-      <div class="col-md-6 col-lg-3 col-sm-6 margin-bottom-30 block btn06">
-        <img src="https://htmlstream.com/preview/unify-v2.4/assets/img-temp/600x295/img4.jpg" alt="">
-        <div class="ovrly"></div>
-        <div class="buttons">
-          <a href="#" title="进入" class="fa fa-search"></a>
-        </div>
+      <div class="col-md-4 col-lg-3 col-sm-6 margin-bottom-30  block btn06" *ngFor="let item of [4,5,6,7,8,9]; index as i">
+        
+        <!-- card demo start -->
+        <app-card theme="card" [data]="item" displayAnimate="animated fadeIn">
+          <ng-template #contentTemplate>
+            <div style="padding:10px; position:relative;">
+                <a href="#">
+                    <img class="card-img-top" src="https://htmlstream.com/preview/unify-v2.4/assets/img-temp/600x295/img{{item}}.jpg">
+                </a>
+                <div class="card-title"></div>
+                <p class="card-text">
+                  <strong>介绍：这是Card,使用了红色主题</strong>
+                </p>
+                <p>
+                   这是Card,使用了红色主题 这是Card,使用了....
+                </p>
+                <div style="display:block; margin:0 auto;">
+                  <a href="#" class="btn btn-md btn-danger">Go Go Go</a>
+                </div>
+                <p>
+    
+                </p>
+            </div>
+          </ng-template>
+        </app-card>
+        <!-- home demo end -->
+      
       </div>
-      <div class="col-md-6 col-lg-3 col-sm-6 margin-bottom-30 block btn06">
-        <img src="https://htmlstream.com/preview/unify-v2.4/assets/img-temp/600x295/img3.jpg" alt="">
-        <div class="ovrly"></div>
-        <div class="buttons">
-          <a href="#" title="进入" class="fa fa-search"></a>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3 col-sm-6 margin-bottom-30 block">
-        <img src="https://htmlstream.com/preview/unify-v2.4/assets/img-temp/600x295/img2.jpg" alt="">
-      </div>
-      <div class="col-md-6 col-lg-3 col-sm-6 margin-bottom-30 block">
-        <img src="https://htmlstream.com/preview/unify-v2.4/assets/img-temp/600x295/img1.jpg" alt="">
-      </div>
+
     </div>
 
     <section style="position:relative" class="margin-bottom-30">
@@ -51,7 +61,7 @@
 
     </section>
 
-    <section class="margin-bottom-30">
+    <!-- <section class="margin-bottom-30">
       <div class="list-group">
         <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
           <div class="d-flex w-100 justify-content-between">
@@ -78,39 +88,41 @@
           <small>paragraph footer</small>
         </a>
       </div>
-    </section>
+    </section> -->
 
-    <section class="margin-bottom-30">
-      <div class="list-group">
-        <a href="#" class="list-group-item active">Item 1</a>
-        <a href="#" class="list-group-item">Item 2</a>
-        <a href="#" class="list-group-item">Item 3</a>
-      </div>
+    <section>
+       <ngb-tabset type="pills" justify="start|center|end">
+         <ngb-tab title="Title1">
+           <ng-template ngbTabContent>
+              <div style="background:blue;"  class="animated fadeIn">
+                  这里是内容1
+                </div>
+           </ng-template>
+         </ngb-tab>
+         <ngb-tab title="Title2">
+           <ng-template ngbTabContent>
+             <div style="background:red;" class="animated fadeIn">
+               这里是内容2
+             </div>
+           </ng-template>
+         </ngb-tab>
+       </ngb-tabset>
     </section>
-
-    <section class="margin-bottom-30">
-      <div class="card text-center">
-        <div class="card-header">
-          <ul class="nav nav-tabs card-header-tabs">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Active tab</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Tab</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled tab</a>
-            </li>
-          </ul>
-        </div>
-        <div class="card-body">
-          <h4 class="card-title">Title</h4>
-          <p class="card-text">Body</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="margin-bottom-30">
+    <!-- <section class="margin-bottom-30">
+      <ul class="nav nav-tabs ">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Active tab</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Tab</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled tab</a>
+          </li>
+        </ul>
+    </section> -->
+       
+    <!-- <section class="margin-bottom-30">
      <div id="accordianId" role="tablist" aria-multiselectable="true">
        <div class="card">
          <div class="card-header" role="tab" id="section1HeaderId">
@@ -141,7 +153,7 @@
          </div>
        </div>
      </div>
-    </section>
+    </section> -->
   </div>
 
 </div>

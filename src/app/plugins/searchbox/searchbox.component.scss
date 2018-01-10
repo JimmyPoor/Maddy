@@ -1,0 +1,52 @@
+.searchbox {
+    width: 240px;
+    position: relative;
+    float: right;
+}
+
+.inputPrime {
+    border-radius: 2px;
+    padding-left: 6px;
+    height: 30px;
+    width: 240px;
+    font-size: 12px;
+    color: #666666;
+}
+
+.isPrimeForSpan {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    width: 16px;
+    height: 16px;
+}
+
+//http://blog.csdn.net/april_4/article/details/52993041
+
+// .inputSearchIcon(@icon) {
+//     background: url(@icon) no-repeat right 0;
+//     cursor: pointer;
+// }
+
+// .tableSearch .inputSearch:extend(.inputPrime) {
+//     border: 1px solid @stroke-gray;
+//     background: @default-white;
+//     &:disabled {
+//         background: @fill-gray;
+//     }
+//     &:focus {
+//         border: 1px solid @default-blue;
+//     }
+//     &+span:extend(.isPrimeForSpan) {
+//         .inputSearchIcon("images/icon_search_mirror.png");
+//     }
+//     &:valid+span:extend(.isPrimeForSpan) {
+//         .inputSearchIcon("images/icon_search_delete.png");
+//     }
+//     &:invalid:focus+span:extend(.isPrimeForSpan) {
+//         .inputSearchIcon("images/icon_search_mirror.png");
+//     }
+//     &:valid:focus+span:hover:extend(.isPrimeForSpan) {
+//         .inputSearchIcon("images/icon_search_delete_hover.png");
+//     }
+// }

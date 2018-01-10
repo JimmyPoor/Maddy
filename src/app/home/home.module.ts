@@ -7,6 +7,7 @@ import { LoadingModule } from 'ngx-loading';
 import { HomeComponent } from './home.component';
 import { CarouselComponent } from '../plugins/carousel/carousel.component';
 import { TableModule } from '../plugins/table/table.module';
+import { CardComponent } from '../plugins/card/card.component';
 
 @NgModule({
     imports: [
@@ -15,7 +16,7 @@ import { TableModule } from '../plugins/table/table.module';
         TableModule,
         CommonModule,
     ],
-    declarations: [HomeComponent, CarouselComponent],
+    declarations: [HomeComponent, CarouselComponent,CardComponent],
     exports: [HomeComponent]
 })
 
