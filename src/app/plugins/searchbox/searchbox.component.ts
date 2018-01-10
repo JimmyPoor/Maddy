@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core'
+import { Component, Output, EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs';
 import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 
@@ -14,9 +14,9 @@ export class searchboxComponent implements OnInit {
     // @Output() searchRequest = new EventEmitter<Object>();  
     // term = new Subject<string>();
 
-    ngOnInit(){
-    //   let that=this;
-    //   this.searchRequest
+    ngOnInit() {
+        //   let that=this;
+        //   this.searchRequest
     }
 
     // search(term: string) {
@@ -24,7 +24,7 @@ export class searchboxComponent implements OnInit {
     // }
 
 
-  //stop
+    //stop
 
 
 }

@@ -26,7 +26,7 @@
 
       <!-- data column start -->
       <td *ngFor="let col of getKeys(row)">
-        <span [innerHTML]="row[col] | bypassSecurityTrustHtml"></span>
+        <div [innerHTML]="row[col] | bypassSecurityTrustHtml"></div>
       </td>
       <!-- data column end -->
 

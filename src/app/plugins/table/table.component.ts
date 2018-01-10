@@ -33,14 +33,10 @@ export class TableComponent implements AfterContentInit, OnInit {
     // 主题
     @Input() tableTheme = 'table-theme-chocolate';
     // 列数组
-    columnTitles: Array<string>;
+    columnTitles: Array<string> = new Array<any>();
     // 数据源
-    @Input() data: Array<any> = [
-        { 'col1': '', 'col2': '' },
-        { 'col1': '', 'col2': '' },
-        { 'col1': '', 'col2': '' },
-        { 'col1': '', 'col2': '' }
-    ];
+    @Input() data: Array<any> =  new Array<any>();
+
     // 分页事件
     pageEvent: PageEvent = {
         pageSize: 5,
@@ -50,10 +46,11 @@ export class TableComponent implements AfterContentInit, OnInit {
     // 空数据标题
     private isNoData: boolean;
     // 绑定table空间的视图模型
-    private viewModels = this.data;
+    private viewModels: Array<any>;
 
     constructor(public cdRef: ChangeDetectorRef) {
         this.bindSourceRequest = new EventEmitter();
+        // this.mock();
     }
 
     ngOnInit() { }
@@ -101,6 +98,13 @@ export class TableComponent implements AfterContentInit, OnInit {
 
     private getKeys(item) {
         return Object.keys(item);
+    }
+
+    // 临时数据
+    private mock() {
+        this.columnTitles.forEach((c, i) => {
+            this.viewModels[i]['col'] = '';
+        });
     }
 
     // 克隆方法
