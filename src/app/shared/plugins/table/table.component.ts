@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { isNullOrUndefined } from 'util';
 
-import { BypassSecurityTrustHtmlPipe } from '../../pipes/trust-html-pipe'
+import { BypassSecurityTrustHtmlPipe } from '../../pipes/trust-html-pipe';
 import { ColumnComponent } from './table.column.component';
 
 @Component({

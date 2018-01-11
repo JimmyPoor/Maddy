@@ -1,4 +1,6 @@
-import { Directive, HostListener, ComponentRef, ViewContainerRef, ComponentFactoryResolver, ComponentFactory, Input, OnChanges, SimpleChange, Output, EventEmitter } from "@angular/core";
+import { Directive, HostListener, ComponentRef, ViewContainerRef, 
+    ComponentFactoryResolver, ComponentFactory, Input, OnChanges, 
+    SimpleChange, Output, EventEmitter } from "@angular/core";
 import { PopoverContent } from "./popover.content";
 
 @Directive({

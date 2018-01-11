@@ -1,4 +1,9 @@
-import { Component, Input, AfterViewInit, ElementRef, ChangeDetectorRef, OnDestroy, ViewChild, EventEmitter, Renderer } from "@angular/core";
+import {
+    Component, Input, AfterViewInit, ElementRef,
+    ChangeDetectorRef, OnDestroy, ViewChild, EventEmitter,
+    Renderer
+} from "@angular/core";
+
 import { PopoverDirective } from "./Popover";
 
 @Component({
@@ -156,7 +161,8 @@ export class PopoverContent implements AfterViewInit, OnDestroy {
     // -------------------------------------------------------------------------
     // Protected Methods
     // -------------------------------------------------------------------------
-    protected positionElements(hostEl: HTMLElement, targetEl: HTMLElement, positionStr: string, appendToBody: boolean = false): { top: number, left: number } {
+    protected positionElements(hostEl: HTMLElement,
+        targetEl: HTMLElement, positionStr: string, appendToBody: boolean = false): { top: number, left: number } {
         let positionStrParts = positionStr.split("-");
         let pos0 = positionStrParts[0];
         let pos1 = positionStrParts[1] || "center";
