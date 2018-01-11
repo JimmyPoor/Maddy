@@ -9,32 +9,32 @@
     <!-- <ngx-loading [show]="false" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading> -->
     <div class="row">
       <div class="col-md-4 col-lg-3 col-sm-6 margin-bottom-30  block btn06" *ngFor="let item of [4,5,6,7,8,9]; index as i">
-        
+
         <!-- card demo start -->
-        <app-card theme="card" [data]="item" displayAnimate="animated fadeIn">
+        <app-card [data]="item" displayAnimate="animated fadeIn">
           <ng-template #contentTemplate>
             <div style="padding:10px; position:relative;">
-                <a href="#">
-                    <img class="card-img-top" src="https://htmlstream.com/preview/unify-v2.4/assets/img-temp/600x295/img{{item}}.jpg">
-                </a>
-                <div class="card-title"></div>
-                <p class="card-text">
-                  <strong>介绍：这是Card,使用了红色主题</strong>
-                </p>
-                <p>
-                   这是Card,使用了红色主题 这是Card,使用了....
-                </p>
-                <div style="display:block; margin:0 auto;">
-                  <a href="#" class="btn btn-md btn-danger">Go Go Go</a>
-                </div>
-                <p>
-    
-                </p>
+              <a href="#">
+                <img class="card-img-top" src="https://htmlstream.com/preview/unify-v2.4/assets/img-temp/600x295/img{{item}}.jpg">
+              </a>
+              <div class="card-title"></div>
+              <p class="card-text">
+                <strong>介绍：这是Card,使用了红色主题</strong>
+              </p>
+              <p>
+                这是Card,使用了红色主题 这是Card,使用了....
+              </p>
+              <div style="display:block; margin:0 auto;">
+                <a href="#" class="btn btn-md btn-danger">Go Go Go</a>
+              </div>
+              <p>
+
+              </p>
             </div>
           </ng-template>
         </app-card>
         <!-- home demo end -->
-      
+
       </div>
 
     </div>
@@ -61,99 +61,47 @@
 
     </section>
 
-    <!-- <section class="margin-bottom-30">
-      <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Heading</h5>
-            <small>small</small>
-          </div>
-          <p class="mb-1">Paragraph</p>
-          <small>paragraph footer</small>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Heading</h5>
-            <small>small</small>
-          </div>
-          <p class="mb-1">Paragraph</p>
-          <small>paragraph footer</small>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start disabled">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Heading</h5>
-            <small>small</small>
-          </div>
-          <p class="mb-1">Paragraph</p>
-          <small>paragraph footer</small>
-        </a>
-      </div>
+    <section class="margin-bottom-30">
+      <popover-content #myPopover title="弹出框标题" placement="left" [closeOnClickOutside]="true" >
+        <div style="width:300px; height:300px;" >
+          <b>Very</b>
+          <span style="color: #C21F39">这里是</span>
+          <span style="color: #00b3ee">弹出框</span>
+          <b>
+            <i>
+              <span style="color: #ffc520">啊</span>
+            </i>
+          </b>
+          <small>啊</small>.
+        </div>
+
+      </popover-content>
+
+
+      <button [popover]="myPopover" [popoverOnHover]="true"  [popoverCloseOnMouseOutside]="true" >弹出框测试</button>
+      <button [popover]="myPopover" [popoverOnHover]="true" [popoverCloseOnMouseOutside]="true">弹出框测试</button>
+      
+    </section>
+
+    <!-- <section>
+      <ngb-tabset type="pills" justify="start|center|end">
+        <ngb-tab title="Title1">
+          <ng-template ngbTabContent>
+            <div style="background:blue;" class="animated fadeIn">
+              这里是内容1
+            </div>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Title2">
+          <ng-template ngbTabContent>
+            <div style="background:red;" class="animated fadeIn">
+              这里是内容2
+            </div>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
     </section> -->
 
-    <section>
-       <ngb-tabset type="pills" justify="start|center|end">
-         <ngb-tab title="Title1">
-           <ng-template ngbTabContent>
-              <div style="background:blue;"  class="animated fadeIn">
-                  这里是内容1
-                </div>
-           </ng-template>
-         </ngb-tab>
-         <ngb-tab title="Title2">
-           <ng-template ngbTabContent>
-             <div style="background:red;" class="animated fadeIn">
-               这里是内容2
-             </div>
-           </ng-template>
-         </ngb-tab>
-       </ngb-tabset>
-    </section>
-    <!-- <section class="margin-bottom-30">
-      <ul class="nav nav-tabs ">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Active tab</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Tab</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled tab</a>
-          </li>
-        </ul>
-    </section> -->
-       
-    <!-- <section class="margin-bottom-30">
-     <div id="accordianId" role="tablist" aria-multiselectable="true">
-       <div class="card">
-         <div class="card-header" role="tab" id="section1HeaderId">
-           <h5 class="mb-0">
-             <a data-toggle="collapse" data-parent="#accordianId" href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
-               Section 1
-             </a>
-           </h5>
-         </div>
-         <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
-           <div class="card-body">
-             Section 1 content
-           </div>
-         </div>
-       </div>
-       <div class="card">
-         <div class="card-header" role="tab" id="section2HeaderId">
-           <h5 class="mb-0">
-             <a data-toggle="collapse" data-parent="#accordianId" href="#section2ContentId" aria-expanded="true" aria-controls="section2ContentId">
-               Section 2
-             </a>
-           </h5>
-         </div>
-         <div id="section2ContentId" class="collapse in" role="tabpanel" aria-labelledby="section2HeaderId">
-           <div class="card-body">
-             Section 2 content
-           </div>
-         </div>
-       </div>
-     </div>
-    </section> -->
   </div>
 
 </div>

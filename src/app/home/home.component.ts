@@ -1,13 +1,12 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { CarouselModel, CarouselComponent } from '../plugins/carousel/carousel.component';
-
-import { User } from '../users/shared/user.model';
-import { TableComponent } from '../plugins/table/table.component';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
-
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/debounceTime';
+
+import { CarouselModel, CarouselComponent } from '../shared/plugins/carousel/carousel.component';
+import { TableComponent } from '../shared/plugins/table/table.component';
+import { User } from '../users/shared/user.model';
 
 @Component({
   selector: 'app-home',
@@ -47,7 +46,7 @@ export class HomeComponent {
   bindTable(table: TableComponent) {
     table.columnTitles = ['标题1', '标题2'];
     table.pageEvent.pageSize = 5;
-    
+
     setTimeout(() => {
       table.pageEvent.total = 11;
       table.data = table.pageEvent.current === 1 ? [

@@ -29,15 +29,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // mine
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
-import { CounterComponent } from './plugins/counter/counter.component';
 import { CoreModule } from './core/core.module';
 import { UsersModule } from './users/users.module';
 import { HomeModule } from './home/home.module';
 
 @NgModule({
     declarations: [
-        AppComponent,
-        CounterComponent
+        AppComponent
     ],
     imports: [
         // ststem

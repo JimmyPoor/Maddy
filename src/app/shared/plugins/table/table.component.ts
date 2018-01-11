@@ -6,7 +6,8 @@ import {
 } from '@angular/core';
 import { isNullOrUndefined } from 'util';
 
-import { ColumnComponent } from './table.column.Component';
+import { BypassSecurityTrustHtmlPipe } from '../../pipes/trust-html-pipe'
+import { ColumnComponent } from './table.column.component';
 
 @Component({
     selector: 'app-table',
@@ -35,7 +36,7 @@ export class TableComponent implements AfterContentInit, OnInit {
     // 列数组
     columnTitles: Array<string> = new Array<any>();
     // 数据源
-    @Input() data: Array<any> =  new Array<any>();
+    @Input() data: Array<any> = new Array<any>();
 
     // 分页事件
     pageEvent: PageEvent = {

@@ -3,20 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoadingModule } from 'ngx-loading';
-
+import { SharedModule } from '../shared/share.module';
 import { HomeComponent } from './home.component';
-import { CarouselComponent } from '../plugins/carousel/carousel.component';
-import { TableModule } from '../plugins/table/table.module';
-import { CardComponent } from '../plugins/card/card.component';
 
 @NgModule({
     imports: [
         LoadingModule,
         NgbModule.forRoot(),
-        TableModule,
+        SharedModule,
         CommonModule,
     ],
-    declarations: [HomeComponent, CarouselComponent,CardComponent],
+    declarations: [HomeComponent],
     exports: [HomeComponent]
 })
 
