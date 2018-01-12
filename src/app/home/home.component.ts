@@ -6,6 +6,7 @@ import 'rxjs/add/operator/debounceTime';
 
 import { CarouselModel, CarouselComponent } from '../shared/plugins/carousel/carousel.component';
 import { TableComponent } from '../shared/plugins/table/table.component';
+import { ArticleComponent } from '../shared/plugins/article/article.component'
 import { User } from '../users/shared/user.model';
 
 @Component({

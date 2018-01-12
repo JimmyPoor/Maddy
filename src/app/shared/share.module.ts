@@ -12,6 +12,7 @@ import { CardComponent } from './plugins/card/card.component';
 import { PopoverDirective } from './plugins/popover/popover';
 import { PopoverContent } from './plugins/popover/popover.content';
 import { TableComponent } from './plugins/table/table.component';
+import { ArticleComponent} from './plugins/article/article.component'
 
 @NgModule({
     imports: [CommonModule, DataTableModule, FormsModule, NgbPaginationModule],
@@ -22,7 +23,8 @@ import { TableComponent } from './plugins/table/table.component';
         PopoverDirective,
         PopoverContent,
         TableComponent,
-        ColumnComponent],
+        ColumnComponent,
+        ArticleComponent],
     exports: [
         BypassSecurityTrustHtmlPipe,
         CardComponent,
@@ -30,7 +32,8 @@ import { TableComponent } from './plugins/table/table.component';
         PopoverDirective,
         PopoverContent,
         TableComponent,
-        ColumnComponent]
+        ColumnComponent,
+        ArticleComponent]
 })
 
 export class SharedModule { }

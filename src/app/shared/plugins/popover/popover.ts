@@ -1,6 +1,7 @@
 import { Directive, HostListener, ComponentRef, ViewContainerRef, 
     ComponentFactoryResolver, ComponentFactory, Input, OnChanges, 
     SimpleChange, Output, EventEmitter } from "@angular/core";
+    
 import { PopoverContent } from "./popover.content";
 
 @Directive({
@@ -36,7 +37,8 @@ export class PopoverDirective implements OnChanges {
     popoverAnimation: boolean;
 
     @Input()
-    popoverPlacement: "top" | "bottom" | "left" | "right" | "auto" | "auto top" | "auto bottom" | "auto left" | "auto right";
+    popoverPlacement: "top" | "bottom" | "left" | "right" | "auto" |
+     "auto top" | "auto bottom" | "auto left" | "auto right";
 
     @Input()
     popoverTitle: string;
@@ -56,7 +58,7 @@ export class PopoverDirective implements OnChanges {
     @Output()
     onShown = new EventEmitter<PopoverDirective>();
 
-    @Output()
+    @Output() 
     onHidden = new EventEmitter<PopoverDirective>();
 
     // -------------------------------------------------------------------------

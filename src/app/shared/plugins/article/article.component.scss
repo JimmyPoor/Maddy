@@ -1,0 +1,41 @@
+/*
+控件自定义主题，
+建议如果用bootstap主题不要使用自定义主题
+*/
+
+.article.default-theme {
+    margin: 0;
+    font-size: inherit;
+    & .article-head {
+        text-align: center;
+        .author {
+            color: #e67e22;
+            outline: none;
+        }
+    }
+    & .article-media {
+        overflow: 30px;
+        margin-top: 30px; //注意这里不要用项目整体样式 例如 style.scss里的maring-top-30等等
+        & img{
+            width: 100%;
+            height: 100%
+        }
+    }
+    & .article-content {
+        margin: 30px 0;
+        position: relative;
+    }
+    & .article-permalink .btn-default {
+        border: 1px solid #dc3545;
+        background: #dc3545;
+        color: #ffffff;
+        -webkit-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+    }
+    & .article-footer {
+        margin-top: 30px;
+        border-top: 1px solid #ebebeb;
+        padding: 21px 0 0;
+    }
+}

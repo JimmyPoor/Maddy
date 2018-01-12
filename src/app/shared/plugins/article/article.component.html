@@ -1,0 +1,33 @@
+<article class="article default-theme">
+    <div class="article-head">
+        <h1 class="article-title">
+            <a href="#">{{title}}</a>
+        </h1>
+        <h4 class="article-subTitle">
+            {{subTitle}}
+        </h4>
+        <div class="article-meta">
+            <span class="author">{{author}}</span> 
+            <time class="article-date">{{date}}</time>
+        </div>
+    </div>
+    <div class="article-media" *ngIf="showMedia">
+        <a href="#">
+            <img [src]="mediaImageUrl">
+        </a>
+    </div>
+    <div #content class="article-content" [style.height]="contentHeight>0?contentHeight+'px':'auto'">
+        <ng-content></ng-content>
+    </div>
+    <div class="article-permalink" *ngIf="showPreview && showAllButton">
+        <button class="btn btn-default"  (click)="showAllContent($event)">阅读全文</button>
+    </div>
+    <footer class="article-footer clearfix">
+        <div class="pull-left tag-list">
+            <i class="fa fa-folder-open-o"></i>
+            <!-- <a href="#">来自苹果x高大上移动端</a> -->
+        </div>
+        <div class="pull-right share">
+        </div>
+    </footer>
+</article>

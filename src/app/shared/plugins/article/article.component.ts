@@ -1,39 +1,63 @@
-import { Component } from '@angular/core';
+import {
+    Component, Input, TemplateRef, ContentChild,
+    AfterViewInit, ViewChild, ElementRef, OnInit
+} from '@angular/core';
 
 @Component({
     selector: 'app-article',
-    templateUrl: `
-    <article id="109" class="post tag-android tag-ke-hu-duan">
-        <div class="post-head">
-            <h1 class="post-title"><a href="/android-app-for-ghost/">Android 版 Ghost 客户端来了！</a></h1>
-            <div class="post-meta">
-                <span class="author">作者：<a href="/author/wangsai/">王赛</a></span> •
-                <time class="post-date" datetime="2017年11月8日星期三下午4点44分" title="2017年11月8日星期三下午4点44分">2017年11月8日</time>
-            </div>
-        </div>
-        <div class="featured-media">
-            <a href="/android-app-for-ghost/">
-            <img src="http://static.ghostchina.com/image/c/06/765c76cb1ca259dd8fe8002459bbc.jpg" alt="Android 版 Ghost 客户端来了！"></a>
-        </div>
-        <div class="post-content">
-            https://www.cnblogs.com/ztwBlog/p/6368202.html
-            </p>
-        </div>
-        <div class="post-permalink">
-            <a href="/android-app-for-ghost/" class="btn btn-default">阅读全文</a>
-        </div>
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <i class="fa fa-folder-open-o"></i>
-                <a href="/tag/android/">Android</a>, <a href="/tag/ke-hu-duan/">客户端</a>
-            </div>
-            <div class="pull-right share">
-            </div>
-        </footer>
-    </article>
-    `
+    templateUrl: './article.component.html',
+    styleUrls: ['./article.component.scss']
 })
 
-export class ArticleComponent {
+export class ArticleComponent implements AfterViewInit, OnInit {
+    @Input()
+    title: string = '文章标题';
 
+    @Input()
+    subTitle: string = '';
+
+    @Input()
+    author: string = '';
+
+    @Input()
+    date: string = '';
+
+    @Input()
+    mediaImageUrl: string = 'http://demo.cssmoban.com/cssthemes4/tops_48_Metronic/assets/pages/img/frontend-slider/bg8.jpg';
+
+    @Input()
+    contentHeight: number;
+
+    @Input()
+    showPreview = false;
+
+    @Input()
+    showMedia = false;
+
+    @Input() previewTextLength = Infinity;
+
+    @ViewChild("content") articleContent: ElementRef;
+
+    private contentHtml: string;
+
+    private showAllButton = false;
+
+    ngOnInit() {
+        this.showAllButton = this.showPreview;
+    }
+
+    ngAfterViewInit() {
+        if (this.showPreview) {
+            var that = this;
+            that.contentHtml = that.articleContent.nativeElement.innerHTML;
+            if (that.contentHtml.length > that.previewTextLength)
+                that.articleContent.nativeElement.innerHTML = that.contentHtml.substr(0, that.previewTextLength) + '.....';
+        }
+    }
+
+    showAllContent($event: any) {
+        if (this.articleContent)
+            this.articleContent.nativeElement.innerHTML = this.contentHtml;
+        this.showAllButton = false;
+    }
 }

@@ -11,7 +11,7 @@
       <div class="col-md-4 col-lg-3 col-sm-6 margin-bottom-30  block btn06" *ngFor="let item of [4,5,6,7,8,9]; index as i">
 
         <!-- card demo start -->
-        <app-card [data]="item" displayAnimate="animated fadeIn">
+        <app-card theme="scard" [data]="item" displayAnimate="animated fadeIn">
           <ng-template #contentTemplate>
             <div>
               <a href="#">
@@ -78,6 +78,33 @@
       <button [popover]="myPopover" [popoverOnHover]="true"  [popoverCloseOnMouseOutside]="true" >弹出框测试</button>
       <button [popover]="myPopover" [popoverOnHover]="true" [popoverCloseOnMouseOutside]="true">弹出框测试</button>
       
+    </section>
+
+    <section class="margin-bottom-30">
+      
+      <app-article
+      title="如何使用ngContent"
+      subTitle="呵呵"
+      author="某某"
+      date="2017-12-1"
+      mediaImageUrl="http://demo.cssmoban.com/cssthemes4/tops_48_Metronic/assets/pages/img/frontend-slider/bg9.jpg"
+      [showPreview]=true
+      [previewTextLength]=500
+      [showMedia]=false
+      >
+        <h3>文章内容</h3>
+        <p></p>
+        <div class="font-size-14">
+          <!-- <img src='https://htmlstream.com/preview/unify-v2.4/assets/img-temp/600x295/img4.jpg' /> -->
+          如果你尝试在 Angular 中编写可重复使用的组件，则可能会接触到内容投射的概念。然后你发现了 &#60;ng-content&#62;，并找到了一些关于它的文章，进而实现了所需的功能。
+            接下来我们来通过一个简单的示例，一步步介绍 &#60;ngcontent&#62; 所涉及的内容。
+            Simple example
+            在本文中我们使用一个示例，来演示不同的方式实现内容投影。由于许多问题与Angular 中的组件生命周期相关，因此我们的主要组件将显示一个计数器，用于展示它已被实例化的次数：
+            https://www.cnblogs.com/ztwBlog/p/6368202.html
+        
+          </div>
+      </app-article>
+
     </section>
 
     <!-- <section>
