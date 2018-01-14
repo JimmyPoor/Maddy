@@ -48,16 +48,18 @@ export class ArticleComponent implements AfterViewInit, OnInit {
 
     ngAfterViewInit() {
         if (this.showPreview) {
-            var that = this;
+            const that = this;
             that.contentHtml = that.articleContent.nativeElement.innerHTML;
-            if (that.contentHtml.length > that.previewTextLength)
+            if (that.contentHtml.length > that.previewTextLength) {
                 that.articleContent.nativeElement.innerHTML = that.contentHtml.substr(0, that.previewTextLength) + '.....';
+            }
         }
     }
 
     showAllContent($event: any) {
-        if (this.articleContent)
+        if (this.articleContent) {
             this.articleContent.nativeElement.innerHTML = this.contentHtml;
+        }
         this.showAllButton = false;
     }
 }

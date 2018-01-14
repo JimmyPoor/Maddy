@@ -65,7 +65,7 @@ export class TableComponent implements AfterContentInit, OnInit {
         }
 
         this.viewModels = this.clone(this.data);
-        let temp = null;
+        let temp: ColumnComponent = null;
         for (let i = 0; i < this.columnTemplate.length; i++) {
             temp = this.columnTemplate.find((x, k) => i === k);
             if (isNullOrUndefined(temp)) {
